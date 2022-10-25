@@ -1,0 +1,16 @@
+<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
+  <div *ngFor="let pokemon of _pokemonService.listaCapturados"
+    class="mx-10 my-10 rounded-lg shadow-lg bg-white max-w-sm border grid justify-center">
+
+    <img class="rounded-t-lg w-full h-full" src="{{ pokemon.image }}" alt="Imagem Pokemon" />
+
+    <div class="p-6 text-center">
+      <h5 class="text-gray-900 text-xl font-medium mb-2">{{ pokemon.name | uppercase }}</h5>
+
+      <button type="button"
+        class=" inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg  focus:shadow-lg focus:outline-none focus:ring-0  active:shadow-lg transition duration-150 ease-in-out">
+        Capturado
+      </button>
+    </div>
+  </div>
+</div>
