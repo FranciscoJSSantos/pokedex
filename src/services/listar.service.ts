@@ -12,6 +12,8 @@ export class ListarService {
 
   public listaCapturados: any = [];
 
+  public pokemonCapturados$: any[] = [];
+
   constructor(private _http: HttpClient) {}
 
   configUrl: string = "https://pokeapi.co/api/v2/";

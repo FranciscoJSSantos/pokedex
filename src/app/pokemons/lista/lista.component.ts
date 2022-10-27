@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { ListarService } from "src/services/listar.service";
 import { DialogComponent } from "../dialog/dialog.component";
+import { AddCapturado } from "../store/capturados.actions";
+import { STORE } from "../store/capturados.reducer";
 
 @Component({
   selector: "app-lista",
@@ -19,9 +21,9 @@ export class ListaComponent implements OnInit {
     this.getPokes();
   }
 
-  capturarPokemon(data) {
+  capturarPokemon(pokemon) {
     this.dialog.open(DialogComponent);
-    this._pokemonService.listaCapturados.push(data);
+    STORE.dispatch(AddCapturado(pokemon));
   }
 
   getPokes(): void {

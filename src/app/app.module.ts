@@ -1,43 +1,21 @@
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ListarService } from "../services/listar.service";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { ListaComponent } from "./lista/lista.component";
-
-import { HttpClientModule } from "@angular/common/http";
-import { MatPaginatorModule } from "@angular/material/paginator";
-import { MatTabsModule } from "@angular/material/tabs";
-import { ListarService } from "src/services/listar.service";
-import { CapturadosComponent } from "./capturados/capturados.component";
-import { GroupsComponent } from "./groups/groups.component";
-
-import { CommonModule } from "@angular/common";
-import { MatDialogModule } from "@angular/material/dialog";
-import { MatIconModule } from "@angular/material/icon";
-import { DialogComponent } from "./dialog/dialog.component";
+import { PokemonsModule } from "./pokemons/pokemons.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ListaComponent,
-    GroupsComponent,
-    CapturadosComponent,
-    DialogComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatPaginatorModule,
-    BrowserAnimationsModule,
-    MatTabsModule,
-    MatDialogModule,
-    MatIconModule,
-    CommonModule,
+    BrowserAnimationsModule
   ],
-  entryComponents: [DialogComponent],
   providers: [ListarService],
   bootstrap: [AppComponent],
 })

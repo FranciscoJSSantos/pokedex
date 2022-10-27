@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ListarService } from "src/services/listar.service";
+import { STORE } from "../store/capturados.reducer";
 
 @Component({
   selector: "app-capturados",
@@ -8,7 +8,11 @@ import { ListarService } from "src/services/listar.service";
 })
 export class CapturadosComponent implements OnInit {
   capturados: any[] = [];
-  constructor(public _pokemonService: ListarService) {}
+
+  public capturados$: any = [];
+  constructor() {
+    STORE.subscribe(() => (this.capturados$ = STORE.getState()));
+  }
 
   ngOnInit() {}
 }
