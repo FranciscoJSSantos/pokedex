@@ -1,5 +1,5 @@
-<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
-  <div *ngFor="let pokemon of capturados$.data"
+<!-- <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
+  <div *ngIf="capturados$.data" *ngFor="let pokemon of capturados$"
     class="mx-10 my-10 rounded-lg shadow-lg bg-white max-w-sm border grid justify-center">
 
     <img class="rounded-t-lg w-full h-full" src="{{ pokemon.image }}" alt="Imagem Pokemon" />
@@ -12,5 +12,12 @@
         Capturado
       </button>
     </div>
+  </div>
+
+</div> -->
+
+<div class="text-center justify-center">
+  <div>
+    <h1>sem dado</h1>
   </div>
 </div>

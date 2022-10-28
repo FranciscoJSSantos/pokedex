@@ -1,7 +1,4 @@
 export interface Named {
-  count: number;
-  next: string;
-  previous?: string;
   results: Results[];
 }
 
@@ -10,8 +7,12 @@ export interface Results {
   url: string;
 }
 
-export interface Teste {
-  id: string | number;
+export interface Pokemon {
+  id: number;
   name: string;
-  sprites: { other: { "official-artwork": { front_default: string } } };
+  urlImage: string;
+}
+
+export interface Pokemons {
+  detailsPokemon: Pokemon[];
 }

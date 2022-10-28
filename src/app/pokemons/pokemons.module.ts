@@ -10,6 +10,11 @@ import { ListaComponent } from "./lista/lista.component";
 import { PokemonsRoutingModule } from "./pokemons-routing.module";
 
 import { MatIconModule } from "@angular/material/icon";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreModule } from "@ngrx/store";
+import { ListarService } from "../services/listar.service";
+import { PokemonEffects } from "./effects/pokemon.effects";
+import * as fromPokemon from "./reducers/pokemon.reducer";
 
 @NgModule({
   declarations: [
@@ -25,6 +30,8 @@ import { MatIconModule } from "@angular/material/icon";
     MatIconModule,
     MatTabsModule,
     MatPaginatorModule,
+    StoreModule.forFeature(fromPokemon.pokemonFeatureKey, fromPokemon.reducer),
+    EffectsModule.forFeature([PokemonEffects]),
   ],
   entryComponents: [DialogComponent],
 })
