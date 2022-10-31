@@ -6,17 +6,22 @@ export const actionTypes = {
   load: "[Pokemon] load",
   success: "[Pokemon] success",
   failure: "[Pokemon] failure",
+  catch: "[Pokemon] catch",
 };
 
 export const loads = createAction(actionTypes.load);
 
-export const loadsSuccess = createAction(
+export const loadSuccess = createAction(
   actionTypes.success,
-  //depois trocar pra Pokemon[]
   props<{ detailsPokemon: Pokemon[] }>()
 );
 
-export const loadsFailure = createAction(
+export const loadFailure = createAction(
   actionTypes.failure,
   props<{ error: any }>()
+);
+
+export const catchSuccess = createAction(
+  actionTypes.catch,
+  props<{ pokemon: Pokemon }>()
 );

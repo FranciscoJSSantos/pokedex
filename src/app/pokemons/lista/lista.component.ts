@@ -1,7 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
+import { select, Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 import { Pokemon } from "src/app/shared/Pokemon";
+
 import { ListarService } from "../../services/listar.service";
+import * as pokemonAction from "../actions/pokemon.actions";
 import { DialogComponent } from "../dialog/dialog.component";
 import * as reducer from "../reducers/pokemon.reducer";
 
@@ -13,47 +17,24 @@ import * as reducer from "../reducers/pokemon.reducer";
 export class ListaComponent implements OnInit {
   constructor(
     public _pokemonService: ListarService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public store: Store<reducer.State>
   ) {}
   pokemons: Pokemon[];
+  pokemons$: Observable<Pokemon[]>;
 
   ngOnInit(): void {
-    this._pokemonService.getAllPokemons().subscribe((lista) => {
-      this.pokemons = lista.detailsPokemon;
-    });
+    // this._pokemonService.getAllPokemons().subscribe((lista) => {
+    //   this.pokemons = lista.detailsPokemon;
+    // });
+    this.pokemons$ = this.store.pipe(select(reducer.selectDetailsPokemon));
+
+    this.store.dispatch(pokemonAction.loads());
   }
 
   capturarPokemon(pokemon) {
     this.dialog.open(DialogComponent);
+
+    this.store.dispatch(pokemonAction.catchSuccess({ pokemon }));
   }
-
-  // getPokes(): void {
-  //   let pokeData;
-
-  //   for (let i = 1; i < 150; i++) {
-  //     this._pokemonService.getPokemons(i).subscribe(
-  //       (res) => {
-  //         pokeData = {
-  //           id: i,
-  //           name: res.name,
-  //           image: res.sprites.front_default,
-  //         };
-  //         this.pokemons.push(pokeData);
-  //       },
-  //       (err) => {
-  //         console.error("Pokemon morreu..", err);
-  //       }
-  //     );
-  //   }
-  // }
-
-  // OnPageChange(event: PageEvent) {
-  //   const startIndex = event.pageIndex * event.pageSize;
-  //   let endIndex = startIndex + event.pageSize;
-  //   if (endIndex > this.cardItems.length) {
-  //     endIndex = this.cardItems.length;
-  //   }
-
-  //   this.pageSlice = this.cardItems.slice(startIndex, endIndex);
-  // }
 }

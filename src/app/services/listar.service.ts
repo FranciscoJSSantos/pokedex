@@ -13,6 +13,8 @@ export class ListarService {
 
   constructor(private _http: HttpClient) {}
 
+  public catchedPokemons = [];
+
   getAllPokemons(): Observable<Pokemons> {
     return this._http.get<Named>(this.urlPokemon).pipe(
       map((data) => {
