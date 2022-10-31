@@ -18,4 +18,8 @@ export class CapturadosComponent implements OnInit {
   ngOnInit() {
     this.catched$ = this.store.pipe(select(reducer.selectCatchedPokemon));
   }
+
+  removerPokemon(i: number) {
+    this.store.dispatch(pokemonAction.removeSucecss({ remover: i }));
+  }
 }

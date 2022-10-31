@@ -7,6 +7,7 @@ export const actionTypes = {
   success: "[Pokemon] success",
   failure: "[Pokemon] failure",
   catch: "[Pokemon] catch",
+  remove: "[Pokemon] remove",
 };
 
 export const loads = createAction(actionTypes.load);
@@ -24,4 +25,9 @@ export const loadFailure = createAction(
 export const catchSuccess = createAction(
   actionTypes.catch,
   props<{ pokemon: Pokemon }>()
+);
+
+export const removeSucecss = createAction(
+  actionTypes.remove,
+  props<{ remover: number }>()
 );

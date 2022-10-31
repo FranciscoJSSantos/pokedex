@@ -14,9 +14,14 @@ export const pokemonFeatureKey = "pokemon";
 export interface State {
   detailsPokemon: Pokemon[];
   capturados: Pokemon[];
+  remover: Pokemon[];
 }
 
-export const initialState: State = { detailsPokemon: [], capturados: [] };
+export const initialState: State = {
+  detailsPokemon: [],
+  capturados: [],
+  remover: [],
+};
 
 const pokemonReducer = createReducer(
   initialState,
@@ -27,6 +32,10 @@ const pokemonReducer = createReducer(
   on(pokemonAction.catchSuccess, (state, { pokemon }) => ({
     ...state,
     capturados: [...state.capturados, pokemon],
+  })),
+  on(pokemonAction.removeSucecss, (state, { remover }) => ({
+    ...state,
+    capturados: state.capturados.filter((value, index) => index != remover),
   }))
 );
 
@@ -42,3 +51,6 @@ export const selectDetailsPokemon: MemoizedSelector<object, Pokemon[]> =
 
 export const selectCatchedPokemon: MemoizedSelector<object, Pokemon[]> =
   createSelector(selectPokemonState, (state: State) => state.capturados);
+
+export const selectRemovedPokemon: MemoizedSelector<object, Pokemon[]> =
+  createSelector(selectPokemonState, (state: State) => state.remover);
