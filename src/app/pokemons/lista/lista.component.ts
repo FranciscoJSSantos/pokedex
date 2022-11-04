@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { Pokemon } from "src/app/shared/Pokemon";
+import { Pokemon } from "../../shared/Pokemon";
 
 import { ListarService } from "../../services/listar.service";
 import * as pokemonAction from "../actions/pokemon.actions";
