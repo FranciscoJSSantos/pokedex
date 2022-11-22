@@ -1,16 +1,16 @@
-/* tslint:disable:no-unused-variable */
+// /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { ListarService } from './listar.service';
+// import { TestBed, async, inject } from '@angular/core/testing';
+// import { ListarService } from './listar.service';
 
-describe('Service: Listar', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [ListarService]
-    });
-  });
+// describe('Service: Listar', () => {
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       providers: [ListarService]
+//     });
+//   });
 
-  it('should ...', inject([ListarService], (service: ListarService) => {
-    expect(service).toBeTruthy();
-  }));
-});
+//   it('should ...', inject([ListarService], (service: ListarService) => {
+//     expect(service).toBeTruthy();
+//   }));
+// });

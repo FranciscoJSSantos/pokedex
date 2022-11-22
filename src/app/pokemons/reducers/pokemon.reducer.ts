@@ -23,7 +23,7 @@ export const initialState: State = {
   remover: [],
 };
 
-const pokemonReducer = createReducer(
+export const pokemonReducer = createReducer(
   initialState,
   on(pokemonAction.loadSuccess, (state, { detailsPokemon }) => ({
     ...state,
